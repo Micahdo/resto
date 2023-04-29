@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, h4, .btn {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+body {
+    min-height: 100vh;
+    background-color: white;
+}
+
+html, body {
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titreSite, .titreSite:hover, .titreSite:link, .titreSite:visited, .titreSite:active {
+    color:white;
+    text-decoration: none;
+    font-size: 4rem;
+    font-family: 'Ysabeau', serif;
+}
+
+section {
+    margin: auto;
+    width: 60vw;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+header, footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #5F5F58;
+    text-align: center;
+}
+
+header {
+    height: 15vh;
+}
+
+footer {
+    height: 20vh;
+}
+
+.footerDiv, .headerDiv {
+    width: 60%;
+}
+
+nav {
+    background-color: #e9d7cf;
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    width: 100vw;
+}
+
+nav>ul {
+    width: 40vw;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+
+nav>ul>li>a:link, nav>ul>li>a:visited, nav>ul>li>a:active {
+    text-decoration: none;
+    color:rgb(77, 66, 20);
+    font-size: 1.2rem;
+}
+
+nav>ul>li>a:hover {
+    color: rgb(138, 126, 61);
+}
+
+input {
+    height: 25px;
+    width: 200px;
+    background-color: rgb(238, 238, 238);
+    border: 2px solid rgb(221, 221, 221);
+    text-align: center;
+}
+
+select {
+    height: 25px;
+    min-width: 100px;
+    background-color: rgb(238, 238, 238);
+    text-align: center;
+}
+
+label {
+    text-align: center;
+}
+
+input, select, button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.inputHoraires {
+    width: 100px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+
+}
+
+h3, h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;;
+}
+
+.footerDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.textFooter {
+    color: white;
+    text-transform: uppercase;
+}
+
+.accueilTitre {
+    text-align: center;
+}
+
+
+.accueilImages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.accueilBtnReserver {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background-color: #D6CFCB;    
+}
+
+.btn:hover {
+    background-color: #ece5e0;
+}
+
+.btnAdmin {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #D6CFCB;    
+}
+
+.linkAdmin {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.linkAdmin, .linkAdmin:hover, .linkAdmin:link, .linkAdmin:visited, .linkAdmin:active {
+    color:white;
+    font-family: 'Ysabeau', serif;
+}
+
+.imagePlat {
+    width: 17vw;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.imageAccueil:hover .imageTitre{
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.imageTitre {
+    width: 100%;
+    color: white;
+    font-size: calc(0.5rem + 1vw);
+    position: absolute;
+    bottom: 10%;
+    text-align: center;
+    background-color: rgb(0,0,0,0.5);
+    opacity: 0;
+}
+
+.imageAccueil {
+    position: relative;
+}
+
+.divAdmin, .divConnect {
+    margin-top: 3rem;
+}
+
+.alCol {
+    display:flex;
+    flex-direction: column;
+}
+
+.divConnect {
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li {
+    list-style: none;
+}
+
+.dishTitle {
+    font-size: 1.2rem;
+    color:rgb(77, 66, 20);
+}
+
+.ilDish {
+    height: 2rem;
+}
