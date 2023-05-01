@@ -53,7 +53,7 @@ session_start();
         <!-- Gestion de la page d'accueil -->
         <div class="divAdmin">
             <h3>Page d'accueil</h3>
-                <form action="php/file_transfer.php" method="post">
+                <form action="php/file_transfer.php" method="post" enctype="multipart/form-data">
                     <div class="alCol">
                         <label for="img">Sélectionner une image :</label>
                         <input type="file" name="img">
@@ -63,7 +63,7 @@ session_start();
                         <input type="text" name="imgName">
                     </div>
                     <div class="alCol">
-                    <label for="imgName">Numéro de l'image :</label>
+                    <label for="imgNumber">Numéro de l'image :</label>
                         <select name="imgNumber" id="imgNumber">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -141,11 +141,11 @@ session_start();
                         <div>
                             <label for="">Catégorie :</label>
                             <select name="dishCategory" id="">
-                                <option value="salade">Salade</option>
-                                <option value="entree">Entrée chaude</option>
-                                <option value="charcuterie">Charcuterie</option>
-                                <option value="specialite">Spécialité</option>
-                                <option value="dessert">Dessert</option>
+                                <option value="Salade">Salade</option>
+                                <option value="Entree chaude">Entrée chaude</option>
+                                <option value="Charcuterie">Charcuterie</option>
+                                <option value="Spécialité">Spécialité</option>
+                                <option value="Dessert">Dessert</option>
                             </select>
                         </div>
                         <button class="btnAdmin">Ajouter</button>
@@ -156,7 +156,7 @@ session_start();
                         <?php
                             include_once('php/bdd.php');
                             echo '<select name="listDishes">';
-                            foreach ($db->query('SELECT * FROM dishes ORDER BY category') as $dish) {
+                            foreach ($db->query('SELECT * FROM dishes ORDER BY title') as $dish) {
                                 echo '<option>';
                                 echo $dish['title'];
                                 echo'</option>';

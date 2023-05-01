@@ -3,7 +3,7 @@
     $dishDesc = $_POST['dishDesc'];
     $dishPrice = $_POST['dishPrice'];
     $dishCategory = $_POST['dishCategory'];
-    include_once('php/bdd.php');
+    include_once('../php/bdd.php');
     $selectStatement = $db->prepare("SELECT title FROM dishes WHERE title='$dishName'");
     $selectStatement->execute();
     $select = $selectStatement->fetch();
@@ -16,8 +16,9 @@
         $delRow->bindParam(':category', $dishCategory);
         $delRow->execute();
     } else {
-        $insert = "INSERT INTO dishes (title, description, price, category) VALUES ('$dishName', '$dishDesc', '$dishPrice', '$dishCategory')";
-        $db->query($insert);
+        $insert = $db->prepare("INSERT INTO dishes (title, description, price, category) VALUES ('$dishName', '$dishDesc', '$dishPrice', '$dishCategory')");
+        //$db->query($insert);
+        $insert->execute();
     };   
     header('location:../administration.php');
 ?>

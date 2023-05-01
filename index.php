@@ -36,14 +36,17 @@ session_start();
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[0]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[0]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[1]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[1]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[2]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[2]?></p>
+                <div class="imagePlatFond"></div>
             </div>
         </div>
 
@@ -52,14 +55,17 @@ session_start();
         <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[3]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[3]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[4]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[4]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[5]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[5]?></p>
+                <div class="imagePlatFond"></div>
             </div>
         </div>
 
@@ -68,14 +74,17 @@ session_start();
         <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[6]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[6]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[7]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[7]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[8]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[8]?></p>
+                <div class="imagePlatFond"></div>
             </div>
         </div>
 
@@ -84,14 +93,17 @@ session_start();
         <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[9]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[9]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[10]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[10]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[11]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[11]?></p>
+                <div class="imagePlatFond"></div>
             </div>
         </div>
 
@@ -100,14 +112,17 @@ session_start();
         <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[12]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[12]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[13]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[13]?></p>
+                <div class="imagePlatFond"></div>
             </div>
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[14]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[14]?></p>
+                <div class="imagePlatFond"></div>
             </div>
         </div>
         <div class="accueilBtnReserver">
