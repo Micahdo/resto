@@ -1,4 +1,4 @@
-<div class="footerDiv">
+<div class="flexRow footerDiv">
     <div>
         <h3 class="textFooter">Horaires</h3>
     </div>

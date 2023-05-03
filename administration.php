@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,34 +27,142 @@ session_start();
     </nav>
 
     <?php
-        if (!isset($_SESSION['username'])) {
-            header('location:utilisateur.php');
+        if ($_SESSION['admin'] === 0) {
+            header('location:user.php');
         };
     ?>
 
     <section>
-        <h2>Administration</h2>
+        <h2>Page d'administration</h2>
 
-        <?php
-            echo 'Connexion avec l\'adresse '.$_SESSION['username'];
-        ?>
-        <div>
-            <form action="php/deconnexion.php" method="post">
-                <button class="btn">Déconnexion</button>
-            </form>
-        </div>
-        <div class="divAdmin">
+        <!-- Gestion des administrateurs -->
+        <div class="divAdmin flexCol">
             <h3>Gestion des utilisateurs</h3>
             <p>Créer un administrateur : vérifier la sécurité du mot de passe</p>
-            <p>Supprimer un administrateur</p>
-            <p>Lister les administrateurs</p>
         </div>
+        <div class="flexCol">
+            <h4>Créer un administrateur</h4>
+            <form action="php/new_account_admin.php" method="post" class="flexCol">
+                <div class="alCol">
+                    <label for="username">Entrez une adresse email</label>
+                    <input type="email" name="username">
+                </div>
+                <div class="alCol">
+                    <label for="password">Entrez un mot de passe</label>
+                    <input type="text" name="password">
+                </div>
+                <button class="btn">Valider</button>
+            </form>
+        </div>
+        <div class="flexCol">
+            <h4>Supprimer un administrateur</h4>
+            <form action="php/.php" method="post" class="flexCol">
+                <?php
+                    include_once('php/bdd.php');
+                    echo '<div class="alCol">';
+                    echo '<label for="listAdmins">Liste des administrateurs :</label>';
+                    echo '<select name="listAdmins">';
+                    foreach ($db->query('SELECT * FROM users WHERE user_admin != 0 AND user_email != "bob@hotmail.com"') as $admin) {
+                        echo '<option>';
+                        echo $admin['user_email'];
+                        echo'</option>';
+                    };
+                    echo '</select>';
+                    echo '</div>';
+                ?>
+                <button class="btn">Supprimer</button>
+            </form>
+        </div>
+        <div class="flexCol">
+            <h4>Supprimer un utilisateur</h4>
+            <form action="php/.php" method="post" class="flexCol">
+                <?php
+                    include_once('php/bdd.php');
+                    echo '<div class="alCol">';
+                    echo '<label for="listAdmins">Liste des administrateurs :</label>';
+                    echo '<select name="listAdmins">';
+                    foreach ($db->query('SELECT * FROM users WHERE user_admin != 1') as $admin) {
+                        echo '<option>';
+                        echo $admin['user_email'];
+                        echo'</option>';
+                    };
+                    echo '</select>';
+                    echo '</div>';
+                ?>
+                <button class="btn">Supprimer</button>
+            </form>
+        </div>
+
         <!-- Gestion de la page d'accueil -->
-        <div class="divAdmin">
-            <h3>Page d'accueil</h3>
-                <form action="php/file_transfer.php" method="post" enctype="multipart/form-data">
+        <h3>Page d'accueil</h3>
+        <div class="divAdmin flexRow">
+            <div>
+                <div class="flexRow">
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">1</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">2</p>
+                        </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">3</p>
+                    </div>
+                </div>
+                <div class="flexRow">
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">4</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">5</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">6</p>
+                    </div>
+                </div>
+                <div class="flexRow">
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">7</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">8</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">9</p>
+                    </div>
+                </div>
+                <div class="flexRow">
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">10</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">11</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">12</p>
+                    </div>
+                </div>
+                <div class="flexRow">
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">13</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">14</p>
+                    </div>
+                    <div class="renduAccueilBox flexCol">
+                        <p class="renduAcceuilNumber">15</p>
+                    </div>
+                </div>
+            </div>                
+            <div class="flexCol">
+                <h4>Changer une image</h4>
+                <form 
+                    action="php/file_transfer.php" 
+                    method="post" 
+                    enctype="multipart/form-data" 
+                    class="flexCol"
+                    >
                     <div class="alCol">
-                        <label for="img">Sélectionner une image :</label>
+                        <label for="img">Sélectionner un fichier :</label>
                         <input type="file" name="img">
                     </div>
                     <div class="alCol">
@@ -82,14 +189,15 @@ session_start();
                             <option value="15">15</option>
                         </select>
                     </div>
-                    <button class="btnAdmin">Valider</button>
+                    <button class="btn">Valider</button>
                 </form>
+            </div>                
         </div>
         <!-- Gestion des horaires -->
         <div class="divAdmin">
             <h3>Horaires</h3>
-                <form action="" method="post" class="formHoraires">
-                    <div>
+                <form action="" method="post" class="flexCol">
+                    <div class="alCol">
                         <label for="day">Jour : </label>
                         <select name="day" id="day">
                             <option value="lundi">Lundi</option>
@@ -101,45 +209,46 @@ session_start();
                             <option value="dimanche">Dimanche</option>
                         </select>
                     </div>                
-                    <div>
+                    <div class="alCol">
                         <label for="morningStart">Horaire midi (début) :</label>
                         <input type="time" name="morningStart" class="inputHoraires">
                     </div>
-                    <div>
+                    <div class="alCol">
                         <label for="morningEnd">Horaire midi (fin) :</label>
                         <input type="time" name="morningEnd" class="inputHoraires">
                     </div>
-                    <div>
+                    <div class="alCol">
                         <label for="eveningStart">Horaire soir (début) :</label>
                         <input type="time" name="eveningStart" class="inputHoraires">
                     </div>
-                    <div>
+                    <div class="alCol">
                         <label for="eveningEnd">Horaire soir (fin) :</label>
                         <input type="time" name="eveningEnd" class="inputHoraires">
                     </div>
-                    <button class="btnAdmin">Valider</button>
+                    <button class="btn">Valider</button>
                 </form>
         </div>
         <!-- Gestion de la carte -->
         <div class="divAdmin">
             <h3>Carte</h3>
-                <h4>Plats</h4>
-                <div>
-                    <form action="php/dishes_transfer.php" method="post">
-                        <div>
-                            <label for="dishName">Plat :</label>
+
+                <div class="flexCol">
+                    <h4>Ajouter un plat</h4>
+                    <form action="php/dishes_transfer.php" method="post" class="flexCol">
+                        <div class="alCol">
+                            <label for="dishName" class="txtWhite">Plat :</label>
                             <input type="text" name="dishName">
                         </div>
-                        <div>
-                            <label for="dishDesc">Description :</label>
+                        <div class="alCol">
+                            <label for="dishDesc" class="txtWhite">Description :</label>
                             <input type="text" name="dishDesc">
                         </div>
-                        <div>
-                            <label for="dishPrice">Prix</label>
+                        <div class="alCol">
+                            <label for="dishPrice" class="txtWhite">Prix</label>
                             <input type="number" name="dishPrice" step="0.01">
                         </div>
-                        <div>
-                            <label for="">Catégorie :</label>
+                        <div class="alCol">
+                            <label for="" class="txtWhite">Catégorie :</label>
                             <select name="dishCategory" id="">
                                 <option value="Salade">Salade</option>
                                 <option value="Entree chaude">Entrée chaude</option>
@@ -148,22 +257,27 @@ session_start();
                                 <option value="Dessert">Dessert</option>
                             </select>
                         </div>
-                        <button class="btnAdmin">Ajouter</button>
+                        <button class="btn">Ajouter</button>
                     </form>
                 </div>
-                <div>
-                    <form action="php/dishes_suppress.php" method="post">
+
+                <div class="flexCol">
+                    <h4>Supprimer un plat</h4>
+                    <form action="php/dishes_suppress.php" method="post" class="flexCol">
                         <?php
                             include_once('php/bdd.php');
+                            echo '<div class="alCol">';
+                            echo '<label for="listDishes">Plat :</label>';
                             echo '<select name="listDishes">';
                             foreach ($db->query('SELECT * FROM dishes ORDER BY title') as $dish) {
                                 echo '<option>';
                                 echo $dish['title'];
                                 echo'</option>';
                             };
-                            echo'</select>';
+                            echo '</select>';
+                            echo '</div>';
                         ?>
-                        <button>Supprimer</button>
+                        <button class="btn">Supprimer</button>
                     </form>
                 </div>
 
@@ -173,14 +287,14 @@ session_start();
                 <p>Afficher la liste</p>
         </div>
         <!-- Gestion des couverts -->
-        <div class="divAdmin">
+        <div class="divAdmin flexCol">
             <h3>Restaurant</h3>
                 <label for="">Nombre de couverts :</label>
                 <input type="number">
         </div>
         <!-- Gestion des réservations -->
-        <div class="divAdmin">
-            <h3>Réservation</h3>
+        <div class="divAdmin flexCol">
+            <h3>Réservations</h3>
                 <p>Nombre de tables : </p>
                 <label for="tables">Changer le nombre de tables : </label>
                 <input type="number" name="tables">
@@ -199,7 +313,6 @@ session_start();
         include_once('footer.php');
     ?>
 </footer>
-
 
 </body>
 

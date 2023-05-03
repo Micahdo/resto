@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -29,10 +28,10 @@ session_start();
 
     <section>
         <?php
-            include_once('php/gestion_images.php');
+            include_once('php/images_management.php');
         ?>
         <h3 class="accueilTitre">Nos salades</h3>
-        <div class="accueilImages">
+        <div class="flexRow around">
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[0]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[0]?></p>
@@ -51,8 +50,8 @@ session_start();
         </div>
 
         <h3 class="accueilTitre">Nos entrées chaudes</h3>    
-        <div class="accueilImages">  
-        <div class="imageAccueil">
+        <div class="flexRow around">  
+            <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[3]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[3]?></p>
                 <div class="imagePlatFond"></div>
@@ -70,8 +69,8 @@ session_start();
         </div>
 
         <h3 class="accueilTitre">Nos assiettes de charcuterie</h3>
-        <div class="accueilImages">
-        <div class="imageAccueil">
+        <div class="flexRow around">
+            <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[6]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[6]?></p>
                 <div class="imagePlatFond"></div>
@@ -89,8 +88,8 @@ session_start();
         </div>
 
         <h3 class="accueilTitre">Nos spécialités</h3>
-        <div class="accueilImages">        
-        <div class="imageAccueil">
+        <div class="flexRow around">        
+            <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[9]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[9]?></p>
                 <div class="imagePlatFond"></div>
@@ -108,8 +107,8 @@ session_start();
         </div>
 
         <h3 class="accueilTitre">Nos desserts maison</h3>
-        <div class="accueilImages">        
-        <div class="imageAccueil">
+        <div class="flexRow around">        
+            <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[12]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[12]?></p>
                 <div class="imagePlatFond"></div>

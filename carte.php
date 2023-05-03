@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,80 +26,78 @@ session_start();
         ?>
     </nav>
 
-    <section>
+    <section >
 
-    <div class="carte">
-        <h2>Carte du restaurant</h2>
+    <div class="carte flexCol">
         <?php
             include_once('php/bdd.php');
         ?>
-            <h3>Salades</h3>
-                <?php
-                    echo '<ul class="ulDish">';
-                    foreach ($db->query('SELECT * FROM dishes WHERE category = "Salade"') as $dish) {
-                        echo '<li class="liDish liTitle"><span"><b>'.$dish['title'].'</li>';
-                        if ($dish['description'] != null) {
-                            echo '<li class="liDish liDesc">'.$dish['description'].'</li>';
-                        };
-                        echo '<li class="liDish liPrice">'.$dish['price'].'</li>';
-                    };
-                    echo'</ul>';
-                ?>
-
-            <h3>Entrées chaudes</h3>
-                <?php
-                    echo '<ul>';
-                    foreach ($db->query('SELECT * FROM dishes WHERE category = "Entree chaude"') as $dish) {
-                        echo '<li class="liDish"><span class="dishTitle"><b>'.$dish['title'].'</li>';
-                        if ($dish['description'] != null) {
-                            echo '<li class="liDish">'.$dish['description'].'</li>';
-                        };
-                        echo '<li class="liDish">'.$dish['price'].'</li>';
-                    };
-                    echo'</ul>';
-                ?>
-
-            <h3>Charcuterie</h3>
-                <?php
-                    echo '<ul>';
-                    foreach ($db->query('SELECT * FROM dishes WHERE category = "Charcuterie"') as $dish) {
-                        echo '<li class="liDish"><span class="dishTitle"><b>'.$dish['title'].'</li>';
-                        if ($dish['description'] != null) {
-                            echo '<li liDish="ilDish">'.$dish['description'].'</li>';
-                        };
-                        echo '<li class="liDish">'.$dish['price'].'</li>';
-                    };
-                    echo'</ul>';
-                ?>
-
-            <h3>Spécialités</h3>
-                <?php
-                    echo '<ul>';
-                    foreach ($db->query('SELECT * FROM dishes WHERE category = "Spécialité"') as $dish) {
-                        echo '<li class="liDish"><span class="dishTitle"><b>'.$dish['title'].'</li>';
-                        if ($dish['description'] != null) {
-                            echo '<li class="liDish">'.$dish['description'].'</li>';
-                        };
-                        echo '<li class="liDish">'.$dish['price'].'</li>';
-                    };
-                    echo'</ul>';
-                ?>
-            <h3>Desserts</h3>
+        <h3>Salades</h3>
+        <?php
+            echo '<ul>';
+            foreach ($db->query('SELECT * FROM dishes WHERE category = "Salade"') as $dish) {
+                echo '<li class="liDish liTitle"><span" class="dishTitle"><b>'.$dish['title'].'</li>';
+                if ($dish['description'] != null) {
+                    echo '<li class="liDish liDesc">'.$dish['description'].'</li>';
+                };
+                echo '<li class="liDish liPrice">'.$dish['price'].' € </li>';
+            };
+            echo'</ul>';
+        ?>
+        <hr>
+        <h3>Entrées chaudes</h3>
             <?php
                 echo '<ul>';
-                    foreach ($db->query('SELECT * FROM dishes WHERE category = "Dessert"') as $dish) {
-                        echo '<li class="liDish"><span class="dishTitle"><b>'.$dish['title'].'</li>';
-                        if ($dish['description'] != null) {
-                            echo '<li class="liDish">'.$dish['description'].'</li>';
-                        };
-                        echo '<li class="liDish">'.$dish['price'].'</li>';
+                foreach ($db->query('SELECT * FROM dishes WHERE category = "Entree chaude"') as $dish) {
+                    echo '<li class="liDish liTitle"><span class="dishTitle"><b>'.$dish['title'].'</li>';
+                    if ($dish['description'] != null) {
+                        echo '<li class="liDish liDesc">'.$dish['description'].'</li>';
+                    };
+                    echo '<li class="liDish liPrice">'.$dish['price'].' € </li>';
                 };
                 echo'</ul>';
             ?>
+        <hr>
+        <h3>Charcuterie</h3>
+            <?php
+                echo '<ul>';
+                foreach ($db->query('SELECT * FROM dishes WHERE category = "Charcuterie"') as $dish) {
+                    echo '<li class="liDish liTitle"><span class="dishTitle"><b>'.$dish['title'].'</li>';
+                    if ($dish['description'] != null) {
+                        echo '<li class="liDish liDesc">'.$dish['description'].'</li>';
+                    };
+                    echo '<li class="liDish liPrice">'.$dish['price'].' € </li>';
+                };
+                echo'</ul>';
+            ?>
+        <hr>
+        <h3>Spécialités</h3>
+            <?php
+                echo '<ul>';
+                foreach ($db->query('SELECT * FROM dishes WHERE category = "Spécialité"') as $dish) {
+                    echo '<li class="liDish liTitle"><span class="dishTitle"><b>'.$dish['title'].'</li>';
+                    if ($dish['description'] != null) {
+                        echo '<li class="liDish liDesc">'.$dish['description'].'</li>';
+                    };
+                    echo '<li class="liDish liPrice">'.$dish['price'].' € </li>';
+                };
+                echo'</ul>';
+            ?>
+        <hr>
+        <h3>Desserts</h3>
+
+        <?php
+            echo '<ul>';
+                foreach ($db->query('SELECT * FROM dishes WHERE category = "Dessert"') as $dish) {
+                    echo '<li class="liDish liTitle"><span class="dishTitle"><b>'.$dish['title'].'</li>';
+                    if ($dish['description'] != null) {
+                        echo '<li class="liDish liDesc">'.$dish['description'].'</li>';
+                    };
+                    echo '<li class="liDish liPrice">'.$dish['price'].' € </li>';
+            };
+            echo'</ul>';
+        ?>
     </div>
-        
-
-
 
     </section>
     <?php

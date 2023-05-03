@@ -17,7 +17,6 @@
         $delRow->execute();
     } else {
         $insert = $db->prepare("INSERT INTO dishes (title, description, price, category) VALUES ('$dishName', '$dishDesc', '$dishPrice', '$dishCategory')");
-        //$db->query($insert);
         $insert->execute();
     };   
     header('location:../administration.php');
