@@ -7,10 +7,11 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau&display=swap" rel="stylesheet">
+    
     <title>Quai antique</title>
 
 </head>
@@ -30,18 +31,20 @@ session_start();
     
 <section>
 
+<div id="res"></div>
+
 <h2>Connexion utilisateur</h2>
 <div class="divConnect flexCol">
-    <form action="php/login.php" method="post" class="flexCol">
+    <form action="php/login.php" method="post" class="flexCol" id="formConnexion">
         <div class="alCol">
             <label for="user_email">Adresse email :</label>
-            <input type="email" name="user_email">
+            <input type="email" name="user_email" id="user_email">
         </div>
         <div class="alCol">
             <label for="user_password">Mot de passe :</label>
-            <input type="text" name="user_password">
+            <input type="password" name="user_password" id="user_password">
         </div>
-        <button class="btn">Connexion</button>
+        <button type="submit" class="btn" id="btn-connect">Connexion</button>
     </form>
 </div>
 
@@ -55,22 +58,23 @@ session_start();
 
 <aside class="modal hidden flexCol">
     <h2>Créer un compte client</h2>
-    <form action="php/new_account.php" method="post" class="flexCol">
+    <form method="post" class="flexCol" id="formCreation">
         <div class="alCol">
             <label for="username">Votre adresse email</label>
-            <input type="email" name="username">
+            <input type="email" name="username" id="username">
         </div>
         <div class="alCol">
             <label for="password">Votre mot de passe</label>
-            <input type="text" name="password">
+            <input type="password" name="password" id="password">
         </div>
         <div class="alCol">
             <label for="convives">Nombre de convives par défaut</label>
-            <input type="number" name="convives">
+            <input type="number" name="convives" id="convives" value="1" min="1" max="10">
         </div>
-        <button class="btn">Valider</button>
+        <button type="submit" class="btn" id="btn-creation">Valider</button>
     </form>
     <button class="btn-close">X</button>
+
 </aside>
 
 <?php
@@ -83,8 +87,10 @@ session_start();
     ?>
 </footer>
 
+<script src="js/jquery.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/validation.js"></script>
 
-<script type="text/javascript" src="js/modal.js"></script>
 </body>
 
 </html>
