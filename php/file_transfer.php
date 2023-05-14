@@ -1,7 +1,7 @@
 <?php
     $img_file = $_FILES['img'];
     $img_file_name = $_FILES['img']['name'];
-    $img_name = htmlspecialchars($_POST['imgName']);
+    $img_name = $_POST['imgName'];
     $img_number = $_POST['imgNumber'];
     $img_upload = 1;
 

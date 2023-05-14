@@ -5,20 +5,25 @@ session_start();
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Venez déguster les meilleures spécialités de la Savoie">
+    <meta name="keywords" content="restaurant, savoie, chambery, fondue, raclette, brisgotte, cuisine, michant">
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau&display=swap" rel="stylesheet">
     <title>Quai antique</title>
 </head>
-<header>
-    <?php
-        include_once('header.php');
-    ?>
-</header>
+
 
 <body>
+
+    <header>
+        <?php
+            include_once('header.php');
+        ?>
+    </header>
 
     <nav>
         <?php
@@ -31,7 +36,7 @@ session_start();
             include_once('php/images_management.php');
         ?>
         <h3 class="accueilTitre">Nos salades</h3>
-        <div class="flexRow around">
+        <div class="flexRow around accueilImages">
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[0]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[0]?></p>
@@ -50,7 +55,7 @@ session_start();
         </div>
 
         <h3 class="accueilTitre">Nos entrées chaudes</h3>    
-        <div class="flexRow around">  
+        <div class="flexRow around accueilImages">  
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[3]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[3]?></p>
@@ -131,17 +136,14 @@ session_start();
             value="Réserver"
             class="btn btnReserver"/>
         </div>
-</section>
+    </section>
 
-<?php
-    $db=null;
-?>
-
-<footer>
-    <?php
-        include_once('footer.php');
-    ?>
-</footer>
+    <footer>
+        <?php
+            include_once('footer.php');
+            $db=null;
+        ?>
+    </footer>
 
 </body>
 

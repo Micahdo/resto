@@ -2,36 +2,29 @@
     margin: 0;
     padding: 0;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: 400;    
+    font-weight: 400;
 }
-
 body {
     min-height: 100vh;
-    width: 100vw;
     background-color:#5F5F58;
-    box-sizing: border-box;
 }
-
 html, body, .flexCol  {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 .flexRow {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-
 .alCol {
     display:flex;
     flex-direction: column;
     margin: 1rem;
 }
-
 .around {
     justify-content: space-around;
 }
@@ -46,54 +39,52 @@ header, footer {
     background-color: #3a3a36;
     text-align: center;
 }
-
 header {
     height: 18vh;
 }
-
 footer {
-    height: 25vh;
+    padding-top: 10px;
+    padding-bottom: 30px;
 }
-
 .titreSite, .titreSite:hover, .titreSite:link, .titreSite:visited, .titreSite:active {
     color:white;
     text-decoration: none;
     font-size: 4rem;
     font-family: 'Ysabeau', serif;
 }
-
-.footerDiv, .headerDiv {
-    width: 60%;
+.headerDiv {
+    width: 60vw;
 }
-
 .footerDiv {
-    justify-content: space-around;
+    width: 100vw;
 }
-
-.textFooter {
-    color: white;
-    text-transform: uppercase;
+.footerHours {
+    width: 50vw;
+    height: 20vh;
 }
-
+.footerAddress {
+    width: 15vw;
+    height: 20vh;
+}
+.footerPhone {
+    width: 15vw;
+    height: 20vh;
+}
 .linkAdmin, .linkAdmin:hover, .linkAdmin:link, .linkAdmin:visited, .linkAdmin:active {
     color:white;
 }
-
 .linkAdmin, .btnDisconnect, .userConnected {
     font-size: 0.9rem;
 }
-
 .userConnected {
     position: absolute;
     top: 10px;
     right: 50px;
     z-index: 10;
 }
-
 .userConnected>p {
     color:white;
 }
-
 .btnDisconnect {
     background-color:#3a3a36;
     border:none;
@@ -106,26 +97,22 @@ nav {
     display: flex;
     justify-content: center;
 }
-
 .navbar {
     background-color: #cfbfa0;
     width: 100vw;
     height: 6vh;
 }
-
 .navbar>ul {
     width: 50vw;
     padding: 0;
     justify-content: space-evenly;
     list-style: none;
 }
-
 .navbar>ul>li>a:link, .navbar>ul>li>a:visited, .navbar>ul>li>a:active {
     text-decoration: none;
     color:rgb(71, 61, 20);
-    font-size: 1.4rem;
+    font-size: calc(0.5rem + 1vw);
 }
-
 .navbar>ul>li>a:hover {
     color: rgb(145, 133, 70);
 }
@@ -140,7 +127,6 @@ h2 {
     letter-spacing: 0.2rem;
     text-align: center;
 }
-
 h3 {
     font-family: 'Ysabeau', sans-serif;
     font-size: 2.2rem;
@@ -148,27 +134,23 @@ h3 {
     letter-spacing: 0.2rem;
     text-align: center;
 }
-
 h4 {
     font-size: 1.5rem;
+    text-align: center;
 }
-
 h4, p, label, .txtWhite {
     color:white;
 }
-
 h2, h3, h4 {
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
-
 li {
     list-style: none;
 }
-
 hr {
     height: 1px;
-    width: 30vw;
+    width: 30%;
     margin: auto;
     border: none;
     background-color: #b9b9a1;
@@ -177,32 +159,26 @@ hr {
 /*Section*/
 
 section {
-    margin: auto;
-    width: 60vw;
     padding: 10px;
     flex-grow: 1;
 }
 
 /*Formulaires*/
 
-input, select {
-    height: 25px;    
-    width: 300px;
-    min-width: 100px;
+.input, select {
+    height: 25px;   
+    width: 10vw;
+    min-width: 200px;
     background-color: rgb(238, 238, 238);
     border: 2px solid rgb(221, 221, 221);
     text-align: center;
 }
-
-input, select, button {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.input, select {
+    margin: 1rem;
 }
-
 label {
     text-align: center;
 }
-
 .btn {
     width: 200px;
     height: 40px;
@@ -211,7 +187,6 @@ label {
     font-size: 1.2rem;
     background-color: #D6CFCB;    
 }
-
 .btn:hover {
     background-color: #ece5e0;
 }
@@ -227,8 +202,21 @@ label {
     background-color: #D6CFCB;
 }
 
-.divAdmin {
-    margin-top: 3rem;
+/*Administration : onglets*/
+
+.btn-tab {
+    width: 10vw;
+    height: 40px;
+    background-color: #3a3a36;
+    border: none;
+    color:rgb(216, 191, 108);
+    font-size: 1rem;
+}
+.btn-tab:hover {
+    background-color:#5F5F58;
+}
+.btn-tab-background {
+    background-color:#5F5F58;
 }
 
 /*Administration : gestion de l'accueil*/
@@ -238,14 +226,12 @@ label {
     flex-direction: row;
     justify-content: center;
 }
-
 .renduAccueilBox {
     width: 40px;
     height: 40px;
     border: solid 1px white;
     margin: 10px;
 }
-
 .renduAccueilNumber {
     text-align: center;
 }
@@ -257,7 +243,6 @@ label {
     height: 20vh;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3);
 }
-
 .imagePlatFond {
     width: 17vw;
     height: 20vh;
@@ -267,17 +252,14 @@ label {
     opacity:0;
     background-color: rgba(0, 0, 0, 0.4);
 }
-
 .imageAccueil:hover .imageTitre{
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
 }
-
 .imageAccueil:hover .imagePlatFond{
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
 }
-
 .imageTitre {
     width: 100%;
     color: white;
@@ -288,18 +270,18 @@ label {
     opacity: 0;
     z-index: 2;
 }
-
 .imageAccueil {
     position: relative;
 }
-
 .accueilTitre {
     text-align: center;
 }
-
 .accueilBtnReserver {
     display: flex;
     justify-content: center;
+}
+.accueilImages {
+    width: 60vw;
 }
 
 /*User*/
@@ -310,7 +292,6 @@ label {
     margin-left: auto;
     margin-right: auto;
 }
-
 .modal {
     position: absolute;
     z-index: 20;
@@ -321,7 +302,6 @@ label {
     padding:20px;
     background-color: #3a3a36;
 }
-
 .btn-close {
     position: absolute;
     top:5px;
@@ -330,34 +310,131 @@ label {
     font-weight: bold;
     border: none;
     background-color:  #3a3a36;
+    color:rgb(216, 191, 108);
     cursor: pointer;
 }
-
 .hidden {
     display: none;
 }
 
 /*Carte*/
 
+.flexCarte {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .liDish {
     height: 2.2rem;
 }
-
 .liTitle {
     font-size: 1.5rem;
     color:rgb(167, 156, 138);
 }
-
 .liDesc {
     font-size: 1.1rem;
     color:rgb(216, 210, 184);
 }
-
 .liPrice {
     font-size: 1.3rem;
     color:rgb(233, 216, 150);
 }
-
 .carte {
     text-align: center;
+}
+
+/*Réservation*/
+
+.hourBox {
+    font-size: 1rem;
+    margin: 0.5rem;
+    width: 70px;
+    height: 40px;
+    background-color: rgb(141, 27, 27);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.hourBox:hover {
+    background-color: rgb(175, 52, 52);
+}
+.hourBoxSize {
+    width: 70px;
+    height: 40px;
+}
+.hourResult {
+    color: white;
+    text-align: center;
+}
+.booking-box {
+    width: 40vw;
+}
+.booking-wrap {
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.6rem;
+    }
+    h4 {
+        font-size: 1.2rem;
+    }
+    .liTitle {
+        font-size: 1.2rem;
+    }    
+    .liDesc {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    .liPrice {
+        font-size: 1.1rem;
+    }    
+    hr {
+        width: 60vw;
+    }
+    .navbar>ul {
+        width: 100vw;
+    }
+    .navbar>ul>li>a:link, .navbar>ul>li>a:visited, .navbar>ul>li>a:active {
+        font-size: 1rem;
+    }
+    .footerDiv, .headerDiv {
+        width: 100vw;
+    }
+    .titreSite, .titreSite:hover, .titreSite:link, .titreSite:visited, .titreSite:active {
+        font-size: 3rem;
+    }
+    .imagePlat {
+        width: 100px;
+        height: 100px;
+    }
+    .imagePlatFond {
+        width: 100px;
+        height: 100px;
+    }
+    .footerDiv {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .accueilImages {
+        width: 100vw;
+    }
+    .modal {
+        width: 90vw;
+        height: auto;
+        padding:10px;
+    }
+    .hourBox {
+        width: 15vw;
+        height: 5vh;
+        margin: 0.5rem;
+    }
+    .booking-box {
+        width: 100vw;
+    }
 }

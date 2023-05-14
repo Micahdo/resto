@@ -1,16 +1,48 @@
+
+DROP TABLE IF EXISTS dishes;
 CREATE TABLE dishes (
     title VARCHAR(50) NOT NULL PRIMARY KEY,
     description VARCHAR(250),
     price DECIMAL(4,2) NOT NULL,
-    category VARCHAR(50)
+    category VARCHAR(50) NOT NULL
 );
 
+DROP TABLE IF EXISTS images;
 CREATE TABLE images (
-    id_img INT UNIQUE,
+    id_img TINYINT(2) UNIQUE PRIMARY KEY,
     file VARCHAR(50) NOT NULL,
     name VARCHAR(50)
 );
 
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+	user_id CHAR(36) NOT NULL PRIMARY KEY,
+	user_email VARCHAR(50) NOT NULL UNIQUE,
+	user_password VARCHAR(100) NOT NULL,
+	user_name VARCHAR(50) NOT NULL,
+	user_admin BOOL,
+	default_seats INT(2) DEFAULT 1,
+	bookings INT(4) DEFAULT 0
+);
+
+DROP TABLE IF EXISTS opening_hours;
+CREATE TABLE opening_hours (
+    id_day INT(2) NOT NULL PRIMARY KEY,
+    day VARCHAR(50) NOT NULL,
+    noon_start TIME NOT NULL DEFAULT '00:00:00',
+    noon_end TIME NOT NULL DEFAULT '00:00:00',
+    evening_start TIME NOT NULL DEFAULT '00:00:00',
+    evening_end TIME NOT NULL DEFAULT '00:00:00'
+);
+
+DROP TABLE IF EXISTS restaurant;
+CREATE TABLE restaurant (
+	id INT,
+	max_seats INT(3) NOT NULL DEFAULT 40,
+    inter INT(2) NOT NULL DEFAULT 15
+);
+
+/*Carte*/
 INSERT INTO dishes (title, description, price, category) VALUES ("Salade nature", "", 4.70,"Salade");
 INSERT INTO dishes (title, description, price, category) VALUES ("Salade au noix", "", 6.80,"Salade");
 INSERT INTO dishes (title, description, price, category) VALUES ("Salade paysanne", "Lardons, croûtons", 7.60,"Salade");
@@ -41,6 +73,7 @@ INSERT INTO dishes (title, description, price, category) VALUES ("Tartelette pay
 INSERT INTO dishes (title, description, price, category) VALUES ("Fromage blanc à la crème", "", 6.00,"Dessert");
 INSERT INTO dishes (title, description, price, category) VALUES ("Fromage blanc aux myrtilles", "", 6.10,"Dessert");
 
+/*Images de la page d'accueil*/
 INSERT INTO images (id_img, file, name) VALUES (1, "salade_aux_noix.jpg", "Salade aux noix");
 INSERT INTO images (id_img, file, name) VALUES (2, "salade_paysanne.jpg", "Salade paysanne");
 INSERT INTO images (id_img, file, name) VALUES (3, "salade_savoyarde.jpg", "Salade savoyarde");
@@ -56,3 +89,18 @@ INSERT INTO images (id_img, file, name) VALUES (12, "fondue_savoyarde.jpg", "Fon
 INSERT INTO images (id_img, file, name) VALUES (13, "salade_fruits.jpg", "Salade de fruits");
 INSERT INTO images (id_img, file, name) VALUES (14, "mousse_chocolat.jpg", "Mousse au chocolat");
 INSERT INTO images (id_img, file, name) VALUES (15, "creme_caramel.jpg", "Crème au caramel");
+
+/*Utilisateurs*/
+INSERT INTO users (user_id, user_email, user_password, user_name, user_admin, default_seats, bookings) VALUES (UUID(), "bob@hotmail.com", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "Bob", 1, 1, 0);
+
+/*Horaires d'ouverture*/
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (1, 'Lundi', '12:00:00', '15:00:00', '18:30:00', '23:30:00');
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (2, 'Mardi', '12:00:00', '15:00:00', '18:30:00', '23:30:00');
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (3, 'Mercredi', '00:00:00', '00:00:00', '18:30:00', '23:30:00');
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (4, 'Jeudi', '12:00:00', '15:00:00', '18:30:00', '23:30:00');
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (5, 'Vendredi', '12:00:00', '15:00:00', '18:30:00', '23:30:00');
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (6, 'Samedi', '12:00:00', '14:00:00', '18:30:00', '23:30:00');
+INSERT INTO opening_hours (id_day, day, noon_start, noon_end, evening_start, evening_end) VALUES (7, 'Dimanche', '00:00:00', '00:00:00', '00:00:00', '003:00:00');
+
+/*Intervalle de temps pour les réservations et nombre maximum de couverts*/
+INSERT INTO restaurant (id, inter, max_seats) VALUES (1, 15, 40);
