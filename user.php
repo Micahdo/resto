@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +13,8 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau&display=swap" rel="stylesheet">
-    
     <title>Quai antique</title>
-
 </head>
-
 
 <body>
 
@@ -34,40 +31,41 @@ session_start();
     </nav>
     
     <section>
-        <div id="res"></div>
-        <h2>Connexion utilisateur</h2>
-        <div class="divConnect flexCol">
+        <!-- div id="res"></div -->
+        <h2>Connexion</h2>
+        <div class="flexCol">
             <form action="php/login.php" method="post" class="flexCol" id="formConnexion">
-                <div class="alCol">
+                <div class="flexCol">
                     <label for="user_email">Adresse email :</label>
                     <input type="email" name="user_email" id="user_email" class="input">
                 </div>
-                <div class="alCol">
+                <div class="flexCol">
                     <label for="user_password">Mot de passe :</label>
                     <input type="password" name="user_password" id="user_password" class="input">
                 </div>
                 <button type="submit" class="btn" id="btn-connect">Connexion</button>
             </form>
         </div>
-            <div class="divConnect flexCol">
-                <button  class="btn btn-open">Créer un compte</button>
-            </div>
+        <br>
+        <div class="flexCol">
+            <button  class="btn btn-open">Créer un compte</button>
+        </div>
     </section>
 
     <aside class="modal hidden flexCol">
-        <h2>Créer un compte client</h2>        
+        <h2>Créer un compte</h2>        
         <form method="post" class="flexCol" id="formCreation">
             <div class="flexCol">
                 <label for="email">Votre adresse email</label>
-                <input type="email" name="email" id="email" class="input">
+                <input type="email" name="email" id="email" class="input" required>
             </div>
             <div class="flexCol">
-                <label for="password">Votre identifiant</label>
-                <input type="text" name="username" id="username" class="input">
+                <label for="username">Votre identifiant</label>
+                <input type="text" name="username" id="username" class="input" required>
             </div>
             <div class="flexCol">
                 <label for="password">Votre mot de passe</label>
-                <input type="password" name="password" id="password" class="input">
+                <input type="password" name="password" minlength="8" id="password" class="input" required>
             </div>
             <div class="flexCol">
                 <label for="seats">Nombre de couverts par défaut</label>
