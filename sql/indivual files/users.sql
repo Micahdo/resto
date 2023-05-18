@@ -1,0 +1,2 @@
+INSERT INTO users (user_id, user_email, user_password, user_name, user_admin, default_seats) VALUES ("b26bb82f-f1ac-11ed-89b2-00d8619c787a", "bob@hotmail.com", "$2y$10$y49G9PdVcTjHxtzo3o.vou15oXtpg0dp8gKuRB5iYxN3Z.tFVFgu.", "Bob", 1, 1);
+INSERT INTO users (user_id, user_email, user_password, user_name, user_admin, default_seats) VALUES ("1dd93f64-f1ad-11ed-89b2-00d8619c787a", "jean@hotmail.com", "$2y$10$9i/pltMX7WFGAXIcitFp3u4hPmDNrkc21lLZPD8q/c/LsuizJEWK6", "Jean", 0, 1);
