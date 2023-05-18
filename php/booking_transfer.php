@@ -36,16 +36,16 @@
             $bookingInsert->bindValue(':btime', $time);
             $bookingInsert->execute();
             echo 'La réservation a bien été enregistrée pour le '.$date.' à '.$time;
-        }
-    } else if ($time >= $hourResult['evening_start']) { //Si l'horaire choisi est supérieur à l'horaire de début du soir...
+        }        
+    } else { //Si l'horaire choisi est supérieur à l'horaire de début du soir...
         $resStatement = $db->prepare("SELECT SUM(booking_evening) AS sum_evening FROM bookings WHERE booking_date = :bookingdate");
         $resStatement->bindValue(':bookingdate', $date);
         $resStatement->execute();
         $resResult = $resStatement->fetch();
         $diffEvening = $maxSeats['max_seats'] - $resResult['sum_evening']; // On calcule la différence entre la capacité maximale du restaurant et la somme des couverts pour le soir pour le jour donné
         if ($seats > $diffEvening) { //Si le nombre de couverts choisi est supérieur au nombre de couverts restants pour le soir...
-            echo 'Le nombre de couverts est malheureusement supérieur au nombre de places restantes pour le service du midi. Merci de réduire le nombre de couverts ou de choisir une autre date.';
-        } else  if ($seats <= $diffEvening) { //Si le nombre de couverts choisi est inférieur ou égal au nombre de couverts restants pour le soir...
+            echo 'Le nombre de couverts est malheureusement supérieur au nombre de places restantes pour le service du soir. Merci de réduire le nombre de couverts ou de choisir une autre date.';
+        } else if ($seats <= $diffEvening) { //Si le nombre de couverts choisi est inférieur ou égal au nombre de couverts restants pour le soir...
             $bookingInsert = $db->prepare("INSERT INTO bookings (booking_date, booking_evening, booking_email, booking_user, booking_time) VALUES (:bdate, :bevening, :bemail, :buser, :btime)");
             $bookingInsert->bindValue(':bdate', $date);
             $bookingInsert->bindValue(':bevening', $seats);
