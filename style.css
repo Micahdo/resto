@@ -7,6 +7,7 @@
 body {
     min-height: 100vh;
     background-color:#5F5F58;
+    overflow-x:hidden;
 }
 html, body, .flexCol  {
     display: flex;
@@ -14,20 +15,16 @@ html, body, .flexCol  {
     justify-content: center;
     align-items: center;
 }
-.flexRow {
+.flexRow, .flexArticle {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
 }
-.alCol {
-    display:flex;
-    flex-direction: column;
-    margin: 1rem;
-}
+
 .around {
     justify-content: space-around;
 }
+
 
 /*Header et footer*/
 
@@ -40,7 +37,8 @@ header, footer {
     text-align: center;
 }
 header {
-    height: 18vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 footer {
     padding-top: 10px;
@@ -52,55 +50,49 @@ footer {
     font-size: 4rem;
     font-family: 'Ysabeau', serif;
 }
-.headerDiv {
-    width: 60vw;
-}
-.footerDiv {
-    width: 100vw;
-}
 .footerHours {
-    width: 50vw;
-    height: 20vh;
+    width: 70vw;
 }
-.footerAddress {
-    width: 15vw;
-    height: 20vh;
-}
-.footerPhone {
-    width: 15vw;
-    height: 20vh;
-}
-.linkAdmin, .linkAdmin:hover, .linkAdmin:link, .linkAdmin:visited, .linkAdmin:active {
-    color:white;
-}
-.linkAdmin, .btnDisconnect, .userConnected {
-    font-size: 0.9rem;
+.footerContact {
+    width: 30vw;
 }
 .userConnected {
     position: absolute;
     top: 10px;
-    right: 50px;
+    right: 10px;
     z-index: 10;
-}
-.userConnected>p {
-    color:white;
 }
 .btnDisconnect {
     background-color:#3a3a36;
     border:none;
     color:white;
 }
+.icon {
+    width: 30px;
+    height: 30px;
+    margin: 0.3rem
+}
+.btn-icon {
+    border: none;
+    background: none;
+}
+.flexHours {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.hours {
+    margin: 5px;
+}
 
 /*Navigation*/
 
-nav {
-    display: flex;
-    justify-content: center;
-}
 .navbar {
     background-color: #cfbfa0;
     width: 100vw;
     height: 6vh;
+    align-items: center;
 }
 .navbar>ul {
     width: 50vw;
@@ -138,11 +130,15 @@ h4 {
     font-size: 1.5rem;
     text-align: center;
 }
-h4, p, label, .txtWhite {
+h5 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+h4, h5, p, label, .txtWhite {
     color:white;
 }
 h2, h3, h4 {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 li {
@@ -156,14 +152,27 @@ hr {
     background-color: #b9b9a1;
 }
 
-/*Section*/
+/*Section et article*/
 
 section {
+    width: 70vw;
     padding: 10px;
     flex-grow: 1;
 }
+article, section {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*Formulaires*/
+
+input:invalid {
+    border: 2px dashed red;
+  }
+  
+input:valid {
+    border: 2px solid rgb(221, 221, 221);
+  }
 
 .input, select {
     height: 25px;   
@@ -173,7 +182,15 @@ section {
     border: 2px solid rgb(221, 221, 221);
     text-align: center;
 }
-.input, select {
+.short-input {
+    height: 25px;
+    width: 6vw;
+    min-width: 50px;
+    background-color: rgb(238, 238, 238);
+    border: 2px solid rgb(221, 221, 221);
+    text-align: center;
+}
+.input, .short-input, select {
     margin: 1rem;
 }
 label {
@@ -185,10 +202,19 @@ label {
     border: none;
     border-radius: 10px;
     font-size: 1.2rem;
-    background-color: #D6CFCB;    
+    background-color: #D6CFCB;
+    margin: 0.5rem;
 }
 .btn:hover {
     background-color: #ece5e0;
+}
+.area {
+    width: 10vw;
+    min-width: 200px;
+    background-color: rgb(238, 238, 238);
+    border: 2px solid rgb(221, 221, 221);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 /*Administration*/
@@ -203,14 +229,16 @@ label {
 }
 
 /*Administration : onglets*/
-
+.tab {
+    padding: 10px;
+}
 .btn-tab {
-    width: 10vw;
-    height: 40px;
+    width: 14vw;
+    padding: 10px;
     background-color: #3a3a36;
     border: none;
     color:rgb(216, 191, 108);
-    font-size: 1rem;
+    font-size: 1.4rem;
 }
 .btn-tab:hover {
     background-color:#5F5F58;
@@ -234,6 +262,14 @@ label {
 }
 .renduAccueilNumber {
     text-align: center;
+}
+
+/*Administration : carte et menus*/
+.menu {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: #3a3a36;
 }
 
 /*Accueil*/
@@ -276,22 +312,9 @@ label {
 .accueilTitre {
     text-align: center;
 }
-.accueilBtnReserver {
-    display: flex;
-    justify-content: center;
-}
-.accueilImages {
-    width: 60vw;
-}
 
 /*User*/
 
-.divConnect {
-    margin-top: 3rem;
-    width: 40vw;
-    margin-left: auto;
-    margin-right: auto;
-}
 .modal {
     position: absolute;
     z-index: 20;
@@ -317,13 +340,8 @@ label {
     display: none;
 }
 
-/*Carte*/
+/*Carte et menus*/
 
-.flexCarte {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 .liDish {
     height: 2.2rem;
 }
@@ -339,8 +357,19 @@ label {
     font-size: 1.3rem;
     color:rgb(233, 216, 150);
 }
+li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
 .carte {
     text-align: center;
+}
+.formule {
+    padding: 10px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid rgb(221, 221, 221);
 }
 
 /*Réservation*/
@@ -374,7 +403,9 @@ label {
 }
 
 @media (max-width: 480px) {
-
+    body {
+        font-size: 0.8rem;
+    }
     h2 {
         font-size: 1.8rem;
     }
@@ -383,6 +414,9 @@ label {
     }
     h4 {
         font-size: 1.2rem;
+    }
+    h5 {
+        font-size: 1rem;
     }
     .liTitle {
         font-size: 1.2rem;
@@ -403,9 +437,6 @@ label {
     .navbar>ul>li>a:link, .navbar>ul>li>a:visited, .navbar>ul>li>a:active {
         font-size: 1rem;
     }
-    .footerDiv, .headerDiv {
-        width: 100vw;
-    }
     .titreSite, .titreSite:hover, .titreSite:link, .titreSite:visited, .titreSite:active {
         font-size: 3rem;
     }
@@ -417,17 +448,18 @@ label {
         width: 100px;
         height: 100px;
     }
-    .footerDiv {
-        flex-direction: column;
-        justify-content: center;
-    }
+
     .accueilImages {
         width: 100vw;
     }
     .modal {
-        width: 90vw;
+        width: 80%;
         height: auto;
         padding:10px;
+        position: absolute;
+        top: 10%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .hourBox {
         width: 15vw;
@@ -437,4 +469,42 @@ label {
     .booking-box {
         width: 100vw;
     }
+    .btn {
+        width: 150px;
+        height: 35px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: #D6CFCB;
+        margin: 0.4rem;
+    }
+    .btn-tab {
+        width:20vw;
+        padding: 0;
+        height: 35px;
+        background-color: #3a3a36;
+        border: none;
+        color:rgb(216, 191, 108);
+        font-size: 0.7rem;
+    }
+    section {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+    .flexArticle {
+        flex-direction: column;
+        width: 90vw;
+    }
+    .footerContact, .footerHours {
+        width: 90vw;
+    }
+    .input {
+        width: 60vw;
+        height: 4vh;
+        min-width: 150px;
+    }
+
 }
+    
