@@ -38,10 +38,10 @@ session_start();
 
     <section>
         <!--Onglets-->
-        <div class="flexRow">
+        <div class="flexRow around">
             <div class="btn-tab flexCol" id="btn-admin">Utilisateurs</div>
             <div class="btn-tab flexCol" id="btn-landing">Page d'accueil</div>
-            <div class="btn-tab flexCol" id="btn-hour">Horaires</div>
+            <div class="btn-tab flexCol" id="btn-hour">Restaurant</div>
             <div class="btn-tab flexCol" id="btn-carte">Carte</div>
             <div class="btn-tab flexCol" id="btn-booking">Réservations</div>
         </div>
@@ -49,62 +49,72 @@ session_start();
         <!-- Gestion des administrateurs -->
         <article  class="tab" id="tab-admin">
             <h3>Gestion des utilisateurs</h3>
-            <div class="flexCol">
+            <div class="flexArticle around">
                 <!--Ajouter un droit d'administration-->
-                <h4>Ajouter un droit d'administration</h4>
-                <form action="php/admin_add.php" method="post" class="flexCol">
-                    <?php
-                        include_once('php/bdd.php');
-                        echo '<label for="listAddAdmins">Liste des utilisateurs :</label>';
-                        echo '<select name="listAddAdmins">';
-                        foreach ($db->query('SELECT * FROM users WHERE user_admin != 1 AND user_email != "bob@hotmail.com"') as $user) {
-                            echo '<option>';
-                            echo $user['user_email'];
-                            echo'</option>';
-                        };
-                        echo '</select>';
-                    ?>
-                    <button class="btn">Ajouter</button>
-                </form>
+                <div>
+                    <h4>Ajouter un droit d'administration</h4>
+                    <form action="php/admin_add.php" method="post" class="flexCol">
+                        <?php
+                            //On récupère la liste des clients
+                            include_once('php/bdd.php');
+                            echo '<label for="listAddAdmins">Liste des utilisateurs :</label>';
+                            echo '<select name="listAddAdmins" class="input">';
+                            foreach ($db->query('SELECT * FROM users WHERE user_admin != 1 AND user_email != "jon@hotmail.com"') as $user) {
+                                echo '<option>';
+                                echo $user['user_email'];
+                                echo'</option>';
+                            };
+                            echo '</select>';
+                        ?>
+                        <button class="btn">Ajouter</button>
+                    </form>
+                </div>
                 <!--Retirer un droit d'administration-->
-                <h4>Retirer un droit d'administration</h4>
-                <form action="php/admin_suppress.php" method="post" class="flexCol">
-                    <?php
-                        include_once('php/bdd.php');
-                         echo '<label for="listDelAdmins">Liste des administrateurs :</label>';
-                        echo '<select name="listDelAdmins">';
-                        foreach ($db->query('SELECT * FROM users WHERE user_admin != 0 AND user_email != "bob@hotmail.com"') as $user) {
-                            echo '<option>';
-                            echo $user['user_email'];
-                            echo'</option>';
-                        };
-                        echo '</select>';
-                    ?>
-                    <button class="btn">Supprimer</button>
-                </form>
+                <div>
+                    <h4>Retirer un droit d'administration</h4>
+                    <form action="php/admin_suppress.php" method="post" class="flexCol">
+                        <?php
+                            //On récupère la liste des administrateurs à l'exception de celui du master admin
+                            include_once('php/bdd.php');
+                            echo '<label for="listDelAdmins">Liste des administrateurs :</label>';
+                            echo '<select name="listDelAdmins" class="input">';
+                            foreach ($db->query('SELECT * FROM users WHERE user_admin != 0 AND user_email != "jon@hotmail.com"') as $user) {
+                                echo '<option>';
+                                echo $user['user_email'];
+                                echo'</option>';
+                            };
+                            echo '</select>';
+                        ?>
+                        <button class="btn">Supprimer</button>
+                    </form>
+                </div>
                 <!--Supprimer un compte-->
-                <h4>Supprimer un compte</h4>
-                <form action="php/user_suppress.php" method="post" class="flexCol">
-                    <?php
-                        include_once('php/bdd.php');
-                        echo '<label for="listUsers">Liste des comptes :</label>';
-                        echo '<select name="listUsers">';
-                        foreach ($db->query('SELECT * FROM users WHERE user_email != "bob@hotmail.com"') as $user) {
-                            echo '<option>';
-                            echo $user['user_email'];
-                            echo'</option>';
-                        };
-                        echo '</select>';
-                    ?>
-                    <button class="btn">Supprimer</button>
-                </form>
+                <div>
+                    <h4>Supprimer un compte</h4>
+                    <form action="php/user_suppress.php" method="post" class="flexCol">
+                        <?php
+                            //On récupère la liste de tous les comptes à l'exception de celui du master admin
+                            include_once('php/bdd.php');
+                            echo '<label for="listUsers">Liste des comptes :</label>';
+                            echo '<select name="listUsers" class="input">';
+                            foreach ($db->query('SELECT * FROM users WHERE user_email != "jon@hotmail.com"') as $user) {
+                                echo '<option>';
+                                echo $user['user_email'];
+                                echo'</option>';
+                            };
+                            echo '</select>';
+                        ?>
+                        <button class="btn">Supprimer</button>
+                    </form> 
+                </div>
             </div>
+            <br>
         </article>        
 
         <!-- Gestion de la page d'accueil -->
         <article class="hidden tab" id="tab-landing">
             <h3>Page d'accueil</h3>
-            <div class="flexRow">
+            <div class="flexArticle around">
                 <div>
                     <div class="flexRow">
                         <div class="renduAccueilBox flexCol">
@@ -172,7 +182,7 @@ session_start();
                         >
                         <div class="flexCol">
                             <label for="img">Sélectionner un fichier</label>
-                            <input type="file" name="img">
+                            <input type="file" name="img" class="input">
                         </div>
                         <div class="flexCol">
                             <label for="imgName">Nom de l'image</label>
@@ -180,7 +190,7 @@ session_start();
                         </div>
                         <div class="flexCol">
                         <label for="imgNumber">Numéro de l'image</label>
-                            <select name="imgNumber" id="imgNumber">
+                            <select name="imgNumber" class="input" id="imgNumber">
                                 <option value="1">Image 1</option>
                                 <option value="2">Image 2</option>
                                 <option value="3">Image 3</option>
@@ -202,65 +212,75 @@ session_start();
                     </form>
                 </div>                
             </div>
+            <br>
         </article>
         
         <!-- Gestion des horaires -->
         <article class="hidden tab" id="tab-hours">
-            <h3>Horaires</h3>
-            <div class="flexRow">
-                <form method="post" class="flexCol" id="formHours">
-                    <div class="flexCol">
-                    <label for="day">Modifier les horaires</label>
-                        <select name="day" id="day">
-                            <option value="selectDay">Sélectionner un jour</option>
-                            <option value="Lundi">Lundi</option>
-                            <option value="Mardi">Mardi</option>
-                            <option value="Mercredi">Mercredi</option>
-                            <option value="Jeudi">Jeudi</option>
-                            <option value="Vendredi">Vendredi</option>
-                            <option value="Samedi">Samedi</option>
-                            <option value="Dimanche">Dimanche</option>
-                        </select>
-                    </div>
-                    <div id="hoursResult" class="flexCol"></div>            
-                    <button class="btn" id="btn-hours">Valider</button>
-                </form>
-                <br>
-                <form action="php/interval.php" method="post" class="flexCol">
-                    <?php
-                        include_once('php/bdd.php');
-                        $statement = $db->prepare("SELECT inter FROM restaurant WHERE id = 1");
-                        $statement->execute();
-                        $result = $statement->fetch();
-                        echo '<div><p>Intervalle actuel : '.$result['inter'].' minutes</p></div>';
-
-                    ?>
-                    <br>
-                    <label for="interval">Modifier l'intervalle</label>
-                    <input type="number" min="0" max="60" value="15" class="input" name="interval">
-                    <button class="btn">Modifier</button>
-                </form>
-                <form action="php/max_seats.php" method="post" class="flexCol">
-                    <?php
-                        include_once('php/bdd.php');
-                        $statement = $db->prepare("SELECT max_seats FROM restaurant WHERE id = 1");
-                        $statement->execute();
-                        $result = $statement->fetch();
-                        echo '<div><p>Intervalle actuel : '.$result['max_seats'].' couverts</p></div>';
-                    ?>
-                    <br>
-                    <label for="max-seats">Modifier l'intervalle</label>
-                    <input type="number" min="0" max="200" value="0" class="input" name="max-seats">
-                    <button class="btn">Modifier</button>
-                </form>
+            <h3>Restaurant</h3>
+            <div class="flexArticle around">
+                <div>
+                    <h4>Horaires</h4>
+                    <form method="post" class="flexCol" id="formHours">
+                        <div class="flexCol">
+                        <label for="day">Modifier les horaires</label>
+                            <select name="day" id="day"  class="input">
+                                <option value="selectDay">Sélectionner un jour</option>
+                                <option value="Lundi">Lundi</option>
+                                <option value="Mardi">Mardi</option>
+                                <option value="Mercredi">Mercredi</option>
+                                <option value="Jeudi">Jeudi</option>
+                                <option value="Vendredi">Vendredi</option>
+                                <option value="Samedi">Samedi</option>
+                                <option value="Dimanche">Dimanche</option>
+                            </select>
+                        </div>
+                        <div id="hoursResult" class="flexCol"></div>            
+                        <button class="btn" id="btn-hours">Valider</button>
+                    </form>
+                </div>
+                <div>
+                    <h4>Intervalle</h4>
+                    <form action="php/interval.php" method="post" class="flexCol">
+                        <?php
+                            //On récupère l'intervalle de temps entre les choix d'horaires disponibles pour le client
+                            include_once('php/bdd.php');
+                            $statement = $db->prepare("SELECT inter FROM restaurant WHERE id = 1");
+                            $statement->execute();
+                            $result = $statement->fetch();
+                            echo '<div><p>Intervalle actuel : '.$result['inter'].' minutes</p></div>';
+                        ?>
+                        <br>
+                        <label for="interval">Modifier l'intervalle</label>
+                        <input type="number" min="0" max="60" value="15" class="input" name="interval">
+                        <button class="btn">Modifier</button>
+                    </form>
+                </div>
+                <div>
+                    <h4>Couverts max</h4>
+                    <form action="php/max_seats.php" method="post" class="flexCol">
+                        <?php
+                            //On récupère la capacité maximale du restaurant
+                            include_once('php/bdd.php');
+                            $statement = $db->prepare("SELECT max_seats FROM restaurant WHERE id = 1");
+                            $statement->execute();
+                            $result = $statement->fetch();
+                            echo '<div><p>Capacité maximale : '.$result['max_seats'].' couverts</p></div>';
+                        ?>
+                        <br>
+                        <label for="max-seats">Modifier le nombre de couverts</label>
+                        <input type="number" min="0" max="200" value="0" class="input" name="max-seats">
+                        <button class="btn">Modifier</button>
+                    </form>
+                </div>
             </div>
-            
+            <br>
         </article>
 
         <!-- Gestion de la carte -->
         <article class="hidden tab" id="tab-carte">
             <h3>Carte</h3>
-            <div class="flexCarte">
+            <div class="flexArticle around">
                 <!-- Ajouter un plat -->
                 <div>
                     <h4>Ajouter un plat</h4>
@@ -279,7 +299,7 @@ session_start();
                         </div>
                         <div class="flexCol">
                             <label for="" class="txtWhite">Catégorie du plat</label>
-                            <select name="dishCategory" id="">
+                            <select name="dishCategory"  class="input">
                                 <option value="Salade">Salade</option>
                                 <option value="Entree chaude">Entrée chaude</option>
                                 <option value="Charcuterie">Charcuterie</option>
@@ -295,8 +315,10 @@ session_start();
                     <h4>Supprimer un plat</h4>
                     <form action="php/dishes_suppress.php" method="post" class="flexCol">
                         <?php
+                            //On récupère la liste des plats
                             include_once('php/bdd.php');
-                            echo '<select name="listDishes">';
+                            echo '<label for="listDishes" class="txtWhite">Liste des plats</label>';
+                            echo '<select name="listDishes" class="input" id="listDishes">';                            
                             foreach ($db->query('SELECT * FROM dishes ORDER BY title') as $dish) {
                                 echo '<option>';
                                 echo $dish['title'];
@@ -309,32 +331,81 @@ session_start();
                 </div>
                 <!-- Gérer les menus -->
                 <div>
-                <h4>Menus</h4>
-                <h3>Menu 1</h3>
-                <h4>Formule 1</h4>
-                <p>Entrées</p>
-                <p>Plats</p>
-                <p>Desserts</p>
-                <p>Prix</p>
-                <h4>Formule 2</h4>
-                </div>
+                    <h4>Menus</h4>
+                    <form method="post" class="flexCol">
+                        <div class="flexCol">
+                            <p>Créer un menu</p>
+                            <button class="btn" id="btn-menu-new">Nouveau</button>
+                        </div>
+                        <div class="flexCol">
+                            <p>Modifier un menu</p>
+                            <?php                    
+                            //On récupère la liste des menus et des formules
+                            include_once('php/bdd.php');
+                            echo '<select name="listMenus" class="input" id="listMenus">';
+                            foreach ($db->query('SELECT * FROM menus GROUP BY menu_title ORDER BY menu_title') as $menu) {
+                                echo '<optgroup label="'.$menu['menu_title'].'">';
+                                $mf = $db->prepare("SELECT formule_title FROM menus WHERE menu_title = :mf");
+                                $mf->bindValue(':mf',$menu['menu_title']);
+                                $mf->execute();
+                                $mfResult = $mf->fetchAll();
+                                foreach($mfResult as $ft){
+                                    echo '<option>';
+                                    echo $ft['formule_title'];
+                                    echo '</option>';
+                                };
+                                echo '</optgroup>';
+                            };
+                            echo '</select>';
+                        ?>
+                            <button class="btn" id="btn-menu-update">Modifier</button>
+                        </div>
+                        <div class="flexCol">
+                            <p>Supprimer une formule</p>
+                            <button class="btn" id="btn-menu-delete">Supprimer</button>
+                        </div>
+                        <div id="new-menu"></div>
+                    </form>
+                </div>                
             </div>
         </article>
 
         <!-- Gestion des réservations -->
         <article class="hidden tab" id="tab-bookings">
-            <div class="flexCol">
-                <h3>Réservations</h3>
-                <p>Nombre de tables</p>
-                <label for="tables">Changer le nombre de tables</label>
-                <input type="number" name="tables" class="input" min="1">
-                <p>Lister les réservations en fonction du jour demandé</p>
+            <h3>Réservations</h3>
+            <div class="flexCol around">
+                <form method="post" class="flexCol">
+                    <h4>Sélectionner une date</h4>
+                    <input type="date" class="input" id="date-input">
+                    <div id="dateInputResult"></div>
+                </form>
+                <br>
+                <h4>Liste des réservations</h4>
+                <?php
+                    //On récupère la liste des réservations
+                    include_once('php/bdd.php');
+                    $statement = $db->prepare("SELECT 
+                        DATE_FORMAT(booking_date, '%d-%m-%Y') AS booking_date,
+                        booking_noon,
+                        booking_evening,
+                        booking_user,
+                        booking_time
+                     FROM bookings ORDER BY booking_date");
+                    $statement->execute();
+                    $result = $statement->fetchAll();
+                    echo '<select>';
+                    foreach($result as $reservation){
+                        echo '<option>';
+                        echo $reservation['booking_date'].' / '.$reservation['booking_noon'].' / '.$reservation['booking_evening'].' / '.$reservation['booking_user'];
+                        echo '</option>';
+                    };
+                    echo '</select>';
+                ?>
                 <p>Supprimer une réservation</p>
-                <label for="">Nombre de couverts</label>
-                <input type="number" min="1">
+                <p>Modifier une réservation</p>
             </div>
-        </article>
-       
+            <br>
+        </article>               
     </section>
 
     <?php
@@ -350,6 +421,7 @@ session_start();
     <script src="js/jquery.js"></script>
     <script src="js/hours.js"></script>
     <script src="js/tabs.js"></script>
+    <script src="js/menus.js"></script>
 
 </body>
 
