@@ -1,1 +1,0 @@
-INSERT INTO users (user_id, user_email, user_password, user_name, user_admin, default_seats, bookings) VALUES (UUID(), "bob@hotmail.com", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "Bob", 1, 1, 0);
