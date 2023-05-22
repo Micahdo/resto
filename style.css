@@ -62,11 +62,6 @@ footer {
     right: 10px;
     z-index: 10;
 }
-.btnDisconnect {
-    background-color:#3a3a36;
-    border:none;
-    color:white;
-}
 .icon {
     width: 30px;
     height: 30px;
@@ -75,6 +70,7 @@ footer {
 .btn-icon {
     border: none;
     background: none;
+    cursor: pointer;
 }
 .flexHours {
     display: flex;
@@ -102,27 +98,54 @@ footer {
 }
 .navbar>ul>li>a:link, .navbar>ul>li>a:visited, .navbar>ul>li>a:active {
     text-decoration: none;
-    color:rgb(71, 61, 20);
+    color:#473d14;
     font-size: calc(0.5rem + 1vw);
 }
 .navbar>ul>li>a:hover {
-    color: rgb(145, 133, 70);
+    color: #918546;
+}
+.btn-booking-1 {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    color:#d8bf6c;
+    background-color: #3a3a36;
+    margin: 0.5rem;
+}
+.btn-booking-1:hover {
+    color: white;
+    background-color:#5F5F58;
+}
+.btn-booking-2 {
+    width: 400px;
+    height: 70px;
+    border: none;
+    border-radius: 40px;
+    font-size: 3rem;
+    color:#473d14;
+    background-color: #cfbfa0;
+    margin: 0.5rem;
+}
+.btn-booking-2:hover {
+    background-color: #f1e3c6;
 }
 
 /*Titres, barres et listes*/
 
 h2 {
     font-family: 'Ysabeau', sans-serif;
-    font-size: 2.6rem;
+    font-size: 3rem;
     font-weight: 600;
-    color:rgb(216, 191, 108);
+    color:#d8bf6c;
     letter-spacing: 0.2rem;
     text-align: center;
 }
 h3 {
     font-family: 'Ysabeau', sans-serif;
-    font-size: 2.2rem;
-    color:rgb(216, 191, 108);
+    font-size: 3rem;
+    color:#d8bf6c;
     letter-spacing: 0.2rem;
     text-align: center;
 }
@@ -166,69 +189,43 @@ article, section {
 
 /*Formulaires*/
 
-input:invalid {
-    border: 2px dashed red;
-  }
-  
-input:valid {
-    border: 2px solid rgb(221, 221, 221);
-  }
-
 .input, select {
     height: 25px;   
     width: 10vw;
     min-width: 200px;
-    background-color: rgb(238, 238, 238);
-    border: 2px solid rgb(221, 221, 221);
-    text-align: center;
 }
 .short-input {
     height: 25px;
     width: 6vw;
     min-width: 50px;
-    background-color: rgb(238, 238, 238);
-    border: 2px solid rgb(221, 221, 221);
-    text-align: center;
 }
-.input, .short-input, select {
+.input, .short-input, select, .area {
     margin: 1rem;
+    background-color: #eeeeee;
+    border: 2px solid #dddddd;
 }
-label {
+label, .input, .short-input, select {
     text-align: center;
 }
 .btn {
     width: 200px;
     height: 40px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 1.2rem;
-    background-color: #D6CFCB;
+    background-color: #cfbfa0;
     margin: 0.5rem;
 }
 .btn:hover {
-    background-color: #ece5e0;
+    background-color: #f1e3c6;
 }
 .area {
     width: 10vw;
     min-width: 200px;
-    background-color: rgb(238, 238, 238);
-    border: 2px solid rgb(221, 221, 221);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-/*Administration*/
-
-.btnAdmin {
-    width: 100px;
-    height: 30px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    background-color: #D6CFCB;
 }
 
 /*Administration : onglets*/
+
 .tab {
     padding: 10px;
 }
@@ -237,13 +234,10 @@ label {
     padding: 10px;
     background-color: #3a3a36;
     border: none;
-    color:rgb(216, 191, 108);
+    color:#d8bf6c;
     font-size: 1.4rem;
 }
-.btn-tab:hover {
-    background-color:#5F5F58;
-}
-.btn-tab-background {
+.btn-tab:hover, .btn-tab-background {
     background-color:#5F5F58;
 }
 
@@ -270,6 +264,18 @@ label {
     padding-bottom: 1rem;
     margin-top: 1rem;
     background-color: #3a3a36;
+}
+
+/*Administration : allergies*/
+.allergies-admin {
+    flex-wrap: wrap;
+    width: 40vw;
+    background-color: #3A3A36;
+    padding: 10px;
+}
+.allergies-list {
+    color: #cecece;
+    font-size: 1.5rem;
 }
 
 /*Accueil*/
@@ -333,7 +339,7 @@ label {
     font-weight: bold;
     border: none;
     background-color:  #3a3a36;
-    color:rgb(216, 191, 108);
+    color:#d8bf6c;
     cursor: pointer;
 }
 .hidden {
@@ -347,15 +353,15 @@ label {
 }
 .liTitle {
     font-size: 1.5rem;
-    color:rgb(167, 156, 138);
+    color:#a79c8a;
 }
 .liDesc {
     font-size: 1.1rem;
-    color:rgb(216, 210, 184);
+    color:#d8d2b8;
 }
 .liPrice {
     font-size: 1.3rem;
-    color:rgb(233, 216, 150);
+    color:#d8bf6c;
 }
 li {
     margin-top: 0.5rem;
@@ -369,7 +375,7 @@ li {
     padding: 10px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    border: 2px solid rgb(221, 221, 221);
+    border: 2px solid #dddddd;
 }
 
 /*Réservation*/
@@ -379,13 +385,14 @@ li {
     margin: 0.5rem;
     width: 70px;
     height: 40px;
-    background-color: rgb(141, 27, 27);
+    background-color: #8d1b1b;
+    box-shadow: 0px 0px 10px rgba(173, 0, 0, 0.3);
     border: none;
     color: white;
     cursor: pointer;
 }
 .hourBox:hover {
-    background-color: rgb(175, 52, 52);
+    background-color: #dd4f4f;
 }
 .hourBoxSize {
     width: 70px;
@@ -402,6 +409,35 @@ li {
     flex-wrap: wrap;
 }
 
+/*Allergies*/
+.allergies, .allergy {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.allergies {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 30vw;
+}
+.allergy {
+    margin: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    background-color:#cfbfa0;
+}
+.allergy label {
+    color: black;
+}
+.allergy-box {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+}
+
 @media (max-width: 480px) {
     body {
         font-size: 0.8rem;
@@ -410,7 +446,7 @@ li {
         font-size: 1.8rem;
     }
     h3 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     h4 {
         font-size: 1.2rem;
@@ -473,7 +509,7 @@ li {
         width: 150px;
         height: 35px;
         border: none;
-        border-radius: 8px;
+        border-radius: 17px;
         font-size: 1rem;
         background-color: #D6CFCB;
         margin: 0.4rem;
@@ -484,7 +520,7 @@ li {
         height: 35px;
         background-color: #3a3a36;
         border: none;
-        color:rgb(216, 191, 108);
+        color:#d8bf6c;
         font-size: 0.7rem;
     }
     section {
@@ -505,6 +541,23 @@ li {
         height: 4vh;
         min-width: 150px;
     }
-
+    .btn-booking-1 {
+        width: 100px;
+        height: 30px;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
+    .btn-booking-2 {
+        width: 200px;
+        height: 50px;
+        border-radius: 25px;
+        font-size: 2rem;
+    }
+    .allergies {
+        width: 100vw;
+    }
+    .allergy {
+        margin: 0.5rem;
+    }
 }
     

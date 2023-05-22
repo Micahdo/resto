@@ -17,12 +17,16 @@
                 if ($result != null && $result['user_admin'] == 1) {
                     $_SESSION['email'] = $result['user_email'];
                     $_SESSION['user'] = $result['user_name'];
+                    $_SESSION['seats'] = $result['default_seats'];
                     $_SESSION['admin'] = 1000;
+                    $_SESSION['allergy'] = $result['id_allergy'];
                     header('location:../administration.php');
                 } else if ($result != null && $result['user_admin'] == 0) {
                     $_SESSION['email'] = $result['user_email'];
                     $_SESSION['user'] = $result['user_name'];
+                    $_SESSION['seats'] = $result['default_seats'];
                     $_SESSION['admin'] = 0;
+                    $_SESSION['allergy'] = $result['id_allergy'];
                     header('location:../user.php');
                 }
             } else {

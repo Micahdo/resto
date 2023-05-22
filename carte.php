@@ -16,7 +16,6 @@ session_start();
     <title>Quai antique</title>
 </head>
 
-
 <body>
 
     <header>

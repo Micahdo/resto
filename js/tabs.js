@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    //Gestion des onglets
     $('#btn-admin').on('click', function(e){
         e.preventDefault();
         $('.tab').addClass('hidden');
@@ -34,5 +35,15 @@ $(document).ready(function(){
         $('#tab-bookings').removeClass('hidden');
         $('.btn-tab').removeClass('btn-tab-background');
         $('#btn-booking').addClass('btn-tab-background');
+    });
+    //Affichage des réservations
+    $('#date-input').on('change', function(e){
+        e.preventDefault();
+        let dateInput = $('#date-input').val();
+        if (dateInput != ''){
+            $.post('php/admin_bookings.php', {dateInput: dateInput}, function(data){
+                $('#dateInputResult').html(data);
+            });
+        }
     });
 });

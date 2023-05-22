@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS opening_hours;
 DROP TABLE IF EXISTS restaurant;
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS menus;
+DROP TABLE IF EXISTS allergies;
 
 CREATE TABLE dishes (
     title VARCHAR(50) NOT NULL PRIMARY KEY,
@@ -24,12 +25,14 @@ CREATE TABLE users (
 	user_email VARCHAR(50) NOT NULL UNIQUE,
 	user_password VARCHAR(100) NOT NULL,
 	user_name VARCHAR(50) NOT NULL,
-	user_admin BOOL,
+	user_admin BOOLEAN NOT NULL,
 	default_seats INT(2) DEFAULT 1,
+    id_allergy INT,
+    FOREIGN KEY (id_allergy) REFERENCES allergies(allergy_id)
 );
 
 CREATE TABLE opening_hours (
-    id_day INT(1) NOT NULL PRIMARY KEY,
+    id_day TINYINT(1) NOT NULL PRIMARY KEY,
     day VARCHAR(50) NOT NULL,
     noon_start TIME NOT NULL DEFAULT '00:00:00',
     noon_end TIME NOT NULL DEFAULT '00:00:00',
@@ -38,7 +41,7 @@ CREATE TABLE opening_hours (
 );
 
 CREATE TABLE restaurant (
-	id INT NOT NULL PRIMARY KEY,
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	max_seats INT(3) NOT NULL DEFAULT 40,
     inter INT(2) NOT NULL DEFAULT 15
 );
@@ -50,7 +53,9 @@ CREATE TABLE bookings (
     booking_evening INT(3) DEFAULT 0,
     booking_email VARCHAR(50) NOT NULL,
     booking_user CHAR(36) NOT NULL,
-    booking_time TIME NOT NULL
+    booking_time TIME NOT NULL,
+    id_allergy INT,
+    FOREIGN KEY (id_allergy) REFERENCES allergies(allergy_id)
 );
 
 CREATE TABLE menus (
@@ -60,4 +65,22 @@ CREATE TABLE menus (
     formule_period VARCHAR(50),
     formule_desc TEXT NOT NULL,
     formule_price DECIMAL(5,2) NOT NULL
+);
+
+CREATE TABLE allergies (
+    allergy_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    gluten BOOLEAN DEFAULT 0,
+    crustaces BOOLEAN DEFAULT 0,
+    oeufs BOOLEAN DEFAULT 0,
+    poissons BOOLEAN DEFAULT 0,
+    arachides BOOLEAN DEFAULT 0,
+    soja BOOLEAN DEFAULT 0,
+    lait BOOLEAN DEFAULT 0,
+    coques BOOLEAN DEFAULT 0,
+    celeri BOOLEAN DEFAULT 0,
+    moutarde BOOLEAN DEFAULT 0,
+    sesame BOOLEAN DEFAULT 0,
+    sulfites BOOLEAN DEFAULT 0,
+    lupin BOOLEAN DEFAULT 0,
+    mollusques BOOLEAN DEFAULT 0 
 );

@@ -12,7 +12,6 @@ const closeModal = function () {
     $('#username').val('');
     modal.classList.add("hidden");
 };
-
 /*Ouvre la modale sur un clic sur le bouton Créer un compte*/
 openModalBtn.addEventListener("click", openModal);
 /*Ferme la modale sur un clic sur le bouton X et vide les input*/

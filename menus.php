@@ -16,7 +16,6 @@ session_start();
     <title>Quai antique</title>
 </head>
 
-
 <body>
 
     <header>
@@ -47,7 +46,7 @@ session_start();
                     echo '<li class="liTitle">'.$formule["formule_title"].'</li>';
                     echo '<li><p>'.$formule["formule_period"].'</p></li>';
                     echo '<li class="liDesc">'.nl2br($formule["formule_desc"]).'</li>';
-                    echo '<li class="liPrice">'.$formule["formule_price"].'</li>';
+                    echo '<li class="liPrice">'.$formule["formule_price"].'€</li>';
                     echo '</li>';
                 };
                 echo '</ul>';

@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +13,8 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau&display=swap" rel="stylesheet">
-    
     <title>Quai antique</title>
-
 </head>
-
 
 <body>
 
@@ -34,14 +31,28 @@ session_start();
     </nav>
 
     <section>
-        <div>
+        <div class="flexCol">
             <h3>Compte</h3>
-
-            <p>Modifier le mot de passe</p>
-            <p>Modifier l'identifiant</p>
-            <p>Supprimer le compte</p>
+            <h4>Bienvenue <?php if (isset($_SESSION['user'])) {echo $_SESSION['user'];}?></h4>
             
 
+
+            <?php
+                include_once('php/bdd.php');
+                $statement = $db->prepare("SELECT * FROM bookings WHERE booking_email = :bemail");
+                $statement->bindValue(":bemail", $_SESSION['email']);
+                $statement->execute();
+                $result = $statement->fetchAll();
+    
+                echo '<p> Réservations effectuées :</p>';
+                echo '<ul>';
+                foreach ($result as $bookings){
+                    echo '<li><p>Date : '.date("d-m-Y", strtotime($bookings["booking_date"])).' | Places : '.$bookings["booking_time"].'</p></li>';
+                };
+                echo '</ul>';
+                echo '<br>';
+                include_once('allergies.php');
+            ?>
         </div>
 
     </section>

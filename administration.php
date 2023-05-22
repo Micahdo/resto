@@ -221,10 +221,11 @@ session_start();
             <div class="flexArticle around">
                 <div>
                     <h4>Horaires</h4>
+                    <br>
                     <form method="post" class="flexCol" id="formHours">
-                        <div class="flexCol">
+                        <div class="flexCol">                        
                         <label for="day">Modifier les horaires</label>
-                            <select name="day" id="day"  class="input">
+                            <select name="day" id="day" class="input">
                                 <option value="selectDay">Sélectionner un jour</option>
                                 <option value="Lundi">Lundi</option>
                                 <option value="Mardi">Mardi</option>
@@ -365,6 +366,7 @@ session_start();
                             <button class="btn" id="btn-menu-delete">Supprimer</button>
                         </div>
                         <div id="new-menu"></div>
+                        <br>
                     </form>
                 </div>                
             </div>
@@ -376,35 +378,11 @@ session_start();
             <div class="flexCol around">
                 <form method="post" class="flexCol">
                     <h4>Sélectionner une date</h4>
-                    <input type="date" class="input" id="date-input">
+                    <input type="date"  min="<?php echo date('Y-m-d');?>" class="input" id="date-input">
+                    <br>
                     <div id="dateInputResult"></div>
-                </form>
-                <br>
-                <h4>Liste des réservations</h4>
-                <?php
-                    //On récupère la liste des réservations
-                    include_once('php/bdd.php');
-                    $statement = $db->prepare("SELECT 
-                        DATE_FORMAT(booking_date, '%d-%m-%Y') AS booking_date,
-                        booking_noon,
-                        booking_evening,
-                        booking_user,
-                        booking_time
-                     FROM bookings ORDER BY booking_date");
-                    $statement->execute();
-                    $result = $statement->fetchAll();
-                    echo '<select>';
-                    foreach($result as $reservation){
-                        echo '<option>';
-                        echo $reservation['booking_date'].' / '.$reservation['booking_noon'].' / '.$reservation['booking_evening'].' / '.$reservation['booking_user'];
-                        echo '</option>';
-                    };
-                    echo '</select>';
-                ?>
-                <p>Supprimer une réservation</p>
-                <p>Modifier une réservation</p>
+                </form>         
             </div>
-            <br>
         </article>               
     </section>
 

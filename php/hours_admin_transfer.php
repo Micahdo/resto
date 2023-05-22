@@ -15,7 +15,6 @@
         $hoursModify->bindValue(":h4", $hour4);
         $hoursModify->bindValue(":day", $day);
         $hoursModify->execute();
-        //header('location:../administration.php');
     }
 
 ?>

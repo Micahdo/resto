@@ -16,7 +16,6 @@ session_start();
     <title>Quai antique</title>
 </head>
 
-
 <body>
 
     <header>
@@ -36,7 +35,7 @@ session_start();
             include_once('php/images_management.php');
         ?>
         <h3 class="accueilTitre">Nos salades</h3>
-        <div class="flexRow around accueilImages">
+        <div class="flexRow around">
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[0]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[0]?></p>
@@ -55,7 +54,7 @@ session_start();
         </div>
 
         <h3 class="accueilTitre">Nos entrées chaudes</h3>    
-        <div class="flexRow around accueilImages">  
+        <div class="flexRow around">  
             <div class="imageAccueil">
                 <img class="imagePlat" src="images/<?=$imgArray[3]?>" alt="">
                 <p class="imageTitre"><?=$txtArray[3]?></p>
@@ -129,13 +128,13 @@ session_start();
                 <div class="imagePlatFond"></div>
             </div>
         </div>
-        <div class="accueilBtnReserver">
-            <input 
-            type="button"
-            onclick="location.href='reservation.php'"
-            value="Réserver"
-            class="btn btnReserver"/>
+        <br>
+        <div class="flexCol">
+            <a href="reservation.php">
+                <button class="btn-booking-2">Réserver</button>
+            </a>
         </div>
+        <br>
     </section>
 
     <footer>

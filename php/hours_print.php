@@ -5,23 +5,20 @@
         $hour_evening_start = $hour['time_format(evening_start, "%H:%i")'];
         $hour_evening_end = $hour['time_format(evening_end, "%H:%i")'];
         echo '<div>';
-        echo '<div>';
-        echo '<p>'.$hour['day'].'</p>';
+            echo '<div class="hours">';
+                echo '<p>'.$hour['day'].'</p>';
+                if ($hour_noon_start == '00:00' && $hour_noon_end == '00:00') {
+                    echo '<p>Fermé</p>';
+                } else {
+                    echo '<p>'.$hour_noon_start.' à '.$hour_noon_end.'</p>';
+                };
+                if ($hour_evening_start == '00:00' && $hour_evening_end == '00:00') {
+                    echo '<p>Fermé</p>';
+                } else {
+                    echo '<p>'.$hour_evening_start.' à '.$hour_evening_end.'</p>';
+                };
+            echo '</div>';
         echo '</div>';
-        echo '<div>';
-        if ($hour_noon_start == '00:00' && $hour_noon_end == '00:00') {
-            echo '<p>Fermé</p>';
-        } else {
-            echo '<p>'.$hour_noon_start.' à '.$hour_noon_end.'</p>';
-        };
-        echo '</div>';
-        echo '<div>';
-        if ($hour_evening_start == '00:00' && $hour_evening_end == '00:00') {
-            echo '<p>Fermé</p>';
-        } else {
-            echo '<p>'.$hour_evening_start.' à '.$hour_evening_end.'</p>';
-        };
-        echo '</div>';
-        echo '</div>';
+        echo '<br>';
     };
 ?>

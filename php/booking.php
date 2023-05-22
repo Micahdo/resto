@@ -36,7 +36,8 @@
             };
             echo '</div>';
         echo '</div>';        
-    }
+    };
+    
     //Affiche les horaires du soir si l'heure n'est pas 00:00:00
     if($result['evening_start'] != '00:00:00'){
         $eveningStartTimestamp = strtotime($result['evening_start']);
@@ -45,11 +46,11 @@
         echo '<div class="flexCol booking-box">';
             echo '<p>'.$result['day'].' soir</p>';
             echo '<div class="flexRow booking-wrap">';
-            for($j = $eveningStartTimestamp; $j <= $eveningEndTimestamp; $j = $j + $interval) {
-                $eveningIntervals = date('H:i', $j);
+            for($i = $eveningStartTimestamp; $i <= $eveningEndTimestamp; $i = $i + $interval) {
+                $eveningIntervals = date('H:i', $i);
                 echo '<input type="button" class="hourBox" id="btn-hour" onclick="hourClick()" value="'.$eveningIntervals.'"</button>';
             };
             echo '</div>';
-        echo '</div>';
-    }
+        echo '</div>';        
+    };
 ?>

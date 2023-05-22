@@ -7,15 +7,15 @@ try {
     $conn = new PDO("mysql:host:=$servername;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $creation = $conn->query("CREATE DATABASE IF NOT EXISTS test");
+    $creation = $conn->query("CREATE DATABASE IF NOT EXISTS quai_antique");
     $creation->execute();
-    echo "La base de données a été créée avec le nom quai_antique2";
+    echo "La base de données a été créée avec le nom quai_antique";
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 };
 
 try {
-    $conn = new PDO("mysql:host:=$servername;dbname=test;charset=utf8", $username, $password);
+    $conn = new PDO("mysql:host:=$servername;dbname=quai_antique;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $query = file_get_contents('sql/all.sql');

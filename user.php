@@ -71,6 +71,9 @@ session_start();
                 <label for="seats">Nombre de couverts par défaut</label>
                 <input type="number" name="seats" id="seats" value="1" min="1" max="10" class="input">
             </div>
+            <?php
+                include_once('allergies.php');
+            ?>
             <button type="submit" class="btn" id="btn-creation">Valider</button>
         </form>
         <button class="btn-close">X</button>

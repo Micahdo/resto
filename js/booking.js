@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     //Affichage des horaires lors du choix de la date
     $('#booking-date').on('change', function(e){
@@ -31,6 +30,7 @@ $(document).ready(function(){
 
     //Validation du formulaire
     let emailRegex = /^[0-9a-zA-Z_!#$%&'*+\/=?`{|}~^.-]+@[0-9a-zA-Z]+\.[0-9a-zA-Z]+$/;
+    let seatsRegex = /^\d+$/;
     $('#btn-booking').on('click', function(e){
         if ($('#booking-date').val() == '') {
             e.preventDefault();
@@ -47,6 +47,12 @@ $(document).ready(function(){
         } else if ($('#booking-name').val() == '') {
             e.preventDefault();
             alert('Veuillez entrer un nom de réservation');
+        } else if (seatsRegex.test($('#booking-seats').val()) == false){
+            e.preventDefault();
+            alert("Veuillez entrer un nombre");
+        } else if ($('#booking-seats').val() < 1 || $('#booking-seats').val() > 12){ 
+            e.preventDefault();
+            alert("Veuillez entrer un nombre compris entre 1 et 12");
         } else {
             e.preventDefault();
             let date = $('#booking-date').val();
@@ -54,7 +60,42 @@ $(document).ready(function(){
             let email = $('#booking-email').val();
             let username = $('#booking-name').val();
             let seats = $('#booking-seats').val();
-            $.post('php/booking_transfer.php', {date: date, hour: hour, email: email, username: username, seats: seats, weekDay: weekDay}, function(data){
+            let gluten = $('#gluten').prop('checked') ? 1 : 0;
+            let crustaces = $('#crustaces').prop('checked') ? 1 : 0;
+            let oeufs = $('#oeufs').prop('checked') ? 1 : 0;
+            let poissons = $('#poissons').prop('checked') ? 1 : 0;
+            let arachides = $('#arachides').prop('checked') ? 1 : 0;
+            let soja = $('#soja').prop('checked') ? 1 : 0;
+            let lait = $('#lait').prop('checked') ? 1 : 0;
+            let coques = $('#coques').prop('checked') ? 1 : 0;
+            let celeri = $('#celeri').prop('checked') ? 1 : 0;
+            let moutarde = $('#moutarde').prop('checked') ? 1 : 0;
+            let sesame = $('#sesame').prop('checked') ? 1 : 0;
+            let sulfites = $('#sulfites').prop('checked') ? 1 : 0;
+            let lupin = $('#lupin').prop('checked') ? 1 : 0;
+            let mollusques = $('#mollusques').prop('checked') ? 1 : 0;
+            $.post('php/booking_transfer.php', {
+                date: date, 
+                hour: hour,
+                email: email, 
+                username: username, 
+                seats: seats, 
+                weekDay: weekDay,
+                gluten: gluten,
+                crustaces: crustaces,
+                oeufs: oeufs,
+                poissons: poissons,
+                arachides: arachides,
+                soja: soja,
+                lait: lait,
+                coques: coques,
+                celeri: celeri,
+                moutarde: moutarde,
+                sesame: sesame,
+                sulfites: sulfites,
+                lupin: lupin,
+                mollusques: mollusques
+            }, function(data){
                 alert(data);
             });
         };    
@@ -64,8 +105,8 @@ $(document).ready(function(){
 //Affiche l'heure sélectionnée et la date sélectionnée quand on appuie sur un horaire
 function hourClick() {
     const options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
-    let selectedDate = new Date(document.getElementById('booking-date').value).toLocaleDateString('fr', options);
-    let selectedHour = event.target.value;
-    document.getElementById('dateResult').innerHTML = " " + selectedDate;
-    document.getElementById('hourResult').innerHTML = selectedHour;
+       let selectedDate = new Date(document.getElementById('booking-date').value).toLocaleDateString('fr', options);
+        let selectedHour = event.target.value;
+        document.getElementById('dateResult').innerHTML = selectedDate;
+        document.getElementById('hourResult').innerHTML = selectedHour;
 };

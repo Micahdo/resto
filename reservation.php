@@ -32,56 +32,42 @@ session_start();
 
     <section>
         <h2>Réservation</h2>
-        <?php
-            //echo '<script>alert("'.$_SESSION["user"].'")</script>';
-            //echo '<script>$("#booking-email").val() = '.$_SESSION["user"].'</script>';
-            echo '<script>document.getElementById("booking-email").setAttribute(placeholder, "bob@hotmail.com")</script>';
-        ?>
-        
-        <div class="flexCol">
-            <label for="booking-date">Date de la réservation :</label>
-            <input type="date" name="booking-date" id="booking-date" min="2023-01-01" class="input">
-            <div id="result"></div>
-            <div class="hourResult flexCol" id="hourResult"></div>
-        </div>
-        <div class="flexCol">
-            <label for="booking-email">Votre adresse email :</label>
-            <input type="email" name="booking-email" id="booking-email" class="input" placeholder="<?php if (isset($_SESSION['email'])) {echo $_SESSION['email'];} ?>">
-        </div>
-        <div class="flexCol">
-            <label for="booking-name">Nom de la réservation :</label>
-            <input type="text" name="booking-name" id="booking-name" class="input" placeholder="<?php if (isset($_SESSION['user'])) {echo $_SESSION['user'];} ?>">
-        </div>
-        <div class="flexCol">
-            <label for="booking-table">Nombre de couverts :</label>
-            <select name="booking-table" id="booking-table">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
-        </div>
-        <div class="flexCol">
-            <button class="btn" id="btn-booking">Valider</button>
-        </div>
 
-        <p>Si vous ne pouvez vous rendre au restaurant à l'heure que vous avez choisie, merci de nous l'indiquer au plus tôt en nous joignant par téléphone afin que nous puissions annuler votre réservation.</p>
+        <form method="post">
+            <div class="flexCol">
+                <div class="flexCol">
+                    <p>Date de réservation : <span id="dateResult"></span></p>
+                    <br>
+                    <p>Horaire de réservation : <span id="hourResult"></span></p>
+                </div>
+                <br>
+                <label for="booking-date">Choisir une date :</label>
+                <input type="date" name="booking-date" id="booking-date" min="<?php echo date('Y-m-d');?>" class="input">
+                <div id="result"></div>
+                <br>
+            </div>
+            <div class="flexCol">
+                <label for="booking-email">Votre adresse email :</label>
+                <input type="email" name="booking-email" id="booking-email" class="input" value="<?php if (isset($_SESSION['email'])) {echo $_SESSION['email'];} ?>">
+            </div>
+            <div class="flexCol">
+                <label for="booking-name">Nom de la réservation :</label>
+                <input type="text" name="booking-name" id="booking-name" class="input" value="<?php if (isset($_SESSION['user'])) {echo $_SESSION['user'];} ?>">
+            </div>
+            <div class="flexCol">
+                <label for="booking-seats">Nombre de couverts :</label>
+                <input type="number" class="input" min="1" max="12"  name="booking-seats" id="booking-seats" value="<?php if (isset($_SESSION['seats'])) {echo $_SESSION['seats'];} ?>">
+            </div>
+            <?php
+                include_once('allergies.php');
+            ?>
+            <div class="flexCol">
+                <button class="btn" id="btn-booking">Valider</button>
+            </div>            
+        </form>
         <br>
-        <p>Afficher la liste des horaires disponibles en fonction du jour choisi</p>
-        <p>Calcul des disponibilités et mise à jour en temps réel avec JS</p>
-        <p>Comparaison entre le nombre couverts max pour le jour souhaité et le nombre de couverts demandés</p>
-        <p>Quantité max de couverts déterminée par l'administrateur.</p>
-        <p>Comparer la date choisie à la date actuelle (impossible de choisir une date avant la date actuelle).</p>
-        <p>Table de réservation: date, horaire, nombre de couverts, nom de la réservation, email de la réservation</p>
-
+        <h5>En cas d'annulation de votre réservation, merci de nous contacter au plus tôt par téléphone.</h5>
+        <br>
     </section>
 
     <footer>
