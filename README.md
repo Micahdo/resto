@@ -20,13 +20,13 @@ En cliquant sur le bouton 'Réserver', l'utilisateur doit remplir tous les champ
 ## Utilisation du site – administration
 En se rendant dans l'espace d'administration, l'administrateur peut naviguer entre plusieurs onglets et modifier le site comme bon lui semble. L'administrateur principal (ou master admin) n'apparaît pas dans les menus, il ne peut modifier ou supprimer son propre compte.
 Un administrateur peut : 
-•	Ajouter un droit d'administration.
-•	Supprimer un droit d'administration (sauf le master admin).
-•	Supprimer un compte utilisateur ou administrateur (sauf le master admin).
-•	Ajouter une nouvelle image sur la page d'accueil et en modifier le texte qui apparaît au survol.
-•	Modifier les horaires de chaque jour.
-•	Modifier l'intervalle entre les horaires que peut sélectionner un utilisateur.
-•	Modifier la capacité maximale du restaurant.
-•	Ajouter, modifier ou supprimer un plat sur la carte.
-•	Ajouter, modifier ou supprimer un menu et une formule.
-•	Vérifier les réservations en cours en sélectionnant une date.
+*	Ajouter un droit d'administration.
+*	Supprimer un droit d'administration (sauf le master admin).
+*	Supprimer un compte utilisateur ou administrateur (sauf le master admin).
+*	Ajouter une nouvelle image sur la page d'accueil et en modifier le texte qui apparaît au survol.
+*	Modifier les horaires de chaque jour.
+*	Modifier l'intervalle entre les horaires que peut sélectionner un utilisateur.
+*	Modifier la capacité maximale du restaurant.
+*	Ajouter, modifier ou supprimer un plat sur la carte.
+*	Ajouter, modifier ou supprimer un menu et une formule.
+*	Vérifier les réservations en cours en sélectionnant une date.
